@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip } from "@/components/ui/tooltip";
 import { words } from "@/data/words";
 import { motion } from "framer-motion";
+import slotMachineImage from "../../public/images/slot-machine-redesigned.png"; // Importing the redesigned slot machine image
 
 const Index = () => {
   const [currentWord, setCurrentWord] = useState(null);
@@ -51,6 +52,7 @@ const Index = () => {
           Appuyer ici
         </Button>
       </Tooltip>
+      <img src={slotMachineImage} alt="Slot Machine" className="mt-4 w-64 h-64" />
     </div>
   );
 };
