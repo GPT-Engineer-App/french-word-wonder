@@ -3,13 +3,25 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip } from "@/components/ui/tooltip";
 import { words } from "@/data/words"; // Assuming you have a words.js file with the words and definitions
+import slotMachineAnimated from "@/public/images/slot-machine-animated.gif"; // Importing the animated slot machine GIF
+import leverPullSound from "@/public/sounds/lever-pull.mp3"; // Importing the lever pull sound
+import rewardSound from "@/public/sounds/reward.mp3"; // Importing the reward sound
 
 const Index = () => {
   const [currentWord, setCurrentWord] = useState(null);
+  const [isSpinning, setIsSpinning] = useState(false);
 
   const pullLever = () => {
-    const randomIndex = Math.floor(Math.random() * words.length);
-    setCurrentWord(words[randomIndex]);
+    const leverSound = new Audio(leverPullSound);
+    leverSound.play();
+    setIsSpinning(true);
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * words.length);
+      setCurrentWord(words[randomIndex]);
+      setIsSpinning(false);
+    const rewardSoundEffect = new Audio(rewardSound);
+      rewardSoundEffect.play();
+    }, 2000); // Simulate the spinning time
   };
 
   return (
@@ -21,7 +33,9 @@ const Index = () => {
           <CardTitle>Votre mot du jour</CardTitle>
         </CardHeader>
         <CardContent>
-          {currentWord ? (
+          {isSpinning ? (
+            <img src={slotMachineAnimated} alt="Slot Machine Spinning" />
+          ) : currentWord ? (
             <div>
               <h2 className="text-2xl font-semibold">{currentWord.word}</h2>
               <p>{currentWord.definition}</p>
