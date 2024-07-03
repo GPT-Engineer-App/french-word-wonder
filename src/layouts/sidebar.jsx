@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { CircleUser, Menu, BookOpen } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { navItems } from "../App";
+import slotMachineImage from "../../public/images/slot-machine.png"; // Importing the new slot machine image
 
 const Layout = () => {
   return (
@@ -36,7 +37,7 @@ const Sidebar = () => (
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
         <NavLink to="/" className="flex items-center gap-2 font-semibold">
-          <BookOpen className="h-6 w-6" />
+          <img src={slotMachineImage} alt="Slot Machine" className="h-6 w-6" />
           <span>Machine à Sous Éducative</span>
         </NavLink>
       </div>
@@ -68,7 +69,7 @@ const MobileSidebar = () => (
           to="/"
           className="flex items-center gap-2 text-lg font-semibold mb-4"
         >
-          <BookOpen className="h-6 w-6" />
+          <img src={slotMachineImage} alt="Slot Machine" className="h-6 w-6" />
           <span>Machine à Sous Éducative</span>
         </NavLink>
         {navItems.map((item) => (
