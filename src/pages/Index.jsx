@@ -2,15 +2,24 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip } from "@/components/ui/tooltip";
-import { words } from "@/data/words"; // Assuming you have a words.js file with the words and definitions
-import { motion } from "framer-motion"; // Importing framer-motion for animations
+import { words } from "@/data/words";
+import { motion } from "framer-motion";
 
 const Index = () => {
-  const [currentWord, setCurrentWord] = useState(null);
+  const [currentWords, setCurrentWords] = useState([null, null, null]);
+  const [isSpinning, setIsSpinning] = useState(false);
 
   const pullLever = () => {
-    const randomIndex = Math.floor(Math.random() * words.length);
-    setCurrentWord(words[randomIndex]);
+    setIsSpinning(true);
+    setTimeout(() => {
+      const newWords = [
+        words[Math.floor(Math.random() * words.length)],
+        words[Math.floor(Math.random() * words.length)],
+        words[Math.floor(Math.random() * words.length)],
+      ];
+      setCurrentWords(newWords);
+      setIsSpinning(false);
+    }, 2000);
   };
 
   return (
@@ -22,18 +31,26 @@ const Index = () => {
           <CardTitle>Votre mot du jour</CardTitle>
         </CardHeader>
         <CardContent>
-          {currentWord ? (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-2xl font-semibold">{currentWord.word}</h2>
-              <p>{currentWord.definition}</p>
-            </motion.div>
-          ) : (
-            <p>Appuyez ici pour découvrir un nouveau mot !</p>
-          )}
+          <div className="flex justify-center space-x-4">
+            {currentWords.map((word, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: -100 }}
+                animate={{ y: isSpinning ? 100 : 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-center"
+              >
+                {word ? (
+                  <>
+                    <h2 className="text-2xl font-semibold">{word.word}</h2>
+                    <p>{word.definition}</p>
+                  </>
+                ) : (
+                  <p>Appuyez ici pour découvrir un nouveau mot !</p>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </CardContent>
       </Card>
       <Tooltip content="Appuyez ici pour découvrir un nouveau mot !">
