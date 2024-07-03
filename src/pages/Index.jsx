@@ -28,7 +28,7 @@ const Index = () => {
           <CardTitle>Votre mot du jour</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex justify-center space-x-4">
+          <div className="flex flex-col items-center space-y-4">
             <motion.div
               initial={{ y: -100 }}
               animate={{ y: isSpinning ? 100 : 0 }}
@@ -44,6 +44,7 @@ const Index = () => {
                 <p>Appuyez ici pour découvrir un nouveau mot !</p>
               )}
             </motion.div>
+            <img src={slotMachineImage} alt="Slot Machine" className="w-64 h-64" />
           </div>
         </CardContent>
       </Card>
@@ -52,7 +53,6 @@ const Index = () => {
           Appuyer ici
         </Button>
       </Tooltip>
-      <img src={slotMachineImage} alt="Slot Machine" className="mt-4 w-64 h-64" />
     </div>
   );
 };

@@ -207,4 +207,85 @@ export const words = [
     word: "Zélé",
     definition: "Qui montre une grande ardeur dans l'accomplissement de ses devoirs.",
   },
+  // New words...
+  {
+    word: "Acrimonie",
+    definition: "Humeur agressive qui s'exprime par des paroles aigres.",
+  },
+  {
+    word: "Béotien",
+    definition: "Personne peu ouverte aux lettres et aux arts, de goûts grossiers.",
+  },
+  {
+    word: "Cacochyme",
+    definition: "D'une constitution faible, d'une santé déficiente.",
+  },
+  {
+    word: "Dégingandé",
+    definition: "Qui a une démarche irrégulière et sautillante.",
+  },
+  {
+    word: "Écholalie",
+    definition: "Répétition automatique des paroles de l'interlocuteur.",
+  },
+  {
+    word: "Faraud",
+    definition: "Qui fait le fier, le prétentieux.",
+  },
+  {
+    word: "Gouailleur",
+    definition: "Qui se moque des autres avec une ironie grossière.",
+  },
+  {
+    word: "Histrion",
+    definition: "Comédien qui jouait des farces grossières.",
+  },
+  {
+    word: "Immarcescible",
+    definition: "Qui ne peut se flétrir.",
+  },
+  {
+    word: "Jactance",
+    definition: "Attitude de celui qui se vante avec arrogance.",
+  },
+  {
+    word: "Kabbalistique",
+    definition: "Relatif à la kabbale, doctrine ésotérique et mystique juive.",
+  },
+  {
+    word: "Lénifiant",
+    definition: "Qui calme la douleur.",
+  },
+  {
+    word: "Marmoréen",
+    definition: "Qui a l'apparence du marbre.",
+  },
+  {
+    word: "Népotisme",
+    definition: "Favoritisme excessif envers les membres de sa famille.",
+  },
+  {
+    word: "Obséquieux",
+    definition: "Qui exagère les marques de politesse, par servilité ou hypocrisie.",
+  },
+  {
+    word: "Pusillanime",
+    definition: "Qui manque d'audace, de courage.",
+  },
+  {
+    word: "Quérulence",
+    definition: "Tendance à contester, à réclamer avec obstination.",
+  },
+  {
+    word: "Rubicond",
+    definition: "Très rouge de peau.",
+  },
+  {
+    word: "Sybarite",
+    definition: "Personne qui recherche les plaisirs de la vie dans une atmosphère de luxe.",
+  },
+  {
+    word: "Truculent",
+    definition: "Qui étonne et amuse par ses excès.",
+  },
 ];
