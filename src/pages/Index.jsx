@@ -6,18 +6,14 @@ import { words } from "@/data/words";
 import { motion } from "framer-motion";
 
 const Index = () => {
-  const [currentWords, setCurrentWords] = useState([null, null, null]);
+  const [currentWord, setCurrentWord] = useState(null);
   const [isSpinning, setIsSpinning] = useState(false);
 
   const pullLever = () => {
     setIsSpinning(true);
     setTimeout(() => {
-      const newWords = [
-        words[Math.floor(Math.random() * words.length)],
-        words[Math.floor(Math.random() * words.length)],
-        words[Math.floor(Math.random() * words.length)],
-      ];
-      setCurrentWords(newWords);
+      const newWord = words[Math.floor(Math.random() * words.length)];
+      setCurrentWord(newWord);
       setIsSpinning(false);
     }, 2000);
   };
@@ -32,24 +28,21 @@ const Index = () => {
         </CardHeader>
         <CardContent>
           <div className="flex justify-center space-x-4">
-            {currentWords.map((word, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: -100 }}
-                animate={{ y: isSpinning ? 100 : 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-center"
-              >
-                {word ? (
-                  <>
-                    <h2 className="text-2xl font-semibold">{word.word}</h2>
-                    <p>{word.definition}</p>
-                  </>
-                ) : (
-                  <p>Appuyez ici pour découvrir un nouveau mot !</p>
-                )}
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ y: -100 }}
+              animate={{ y: isSpinning ? 100 : 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center"
+            >
+              {currentWord ? (
+                <>
+                  <h2 className="text-2xl font-semibold">{currentWord.word}</h2>
+                  <p>{currentWord.definition}</p>
+                </>
+              ) : (
+                <p>Appuyez ici pour découvrir un nouveau mot !</p>
+              )}
+            </motion.div>
           </div>
         </CardContent>
       </Card>

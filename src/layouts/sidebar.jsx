@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { CircleUser, Menu, BookOpen } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { navItems } from "../App";
-import slotMachineImage from "../../public/images/slot-machine.png"; // Importing the new slot machine image
+import slotMachineImage from "../../public/images/slot-machine-realistic.png"; // Importing the new realistic slot machine image
 
 const Layout = () => {
   return (
