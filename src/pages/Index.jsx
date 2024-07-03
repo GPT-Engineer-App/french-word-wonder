@@ -19,7 +19,7 @@ const Index = () => {
       const randomIndex = Math.floor(Math.random() * words.length);
       setCurrentWord(words[randomIndex]);
       setIsSpinning(false);
-    const rewardSoundEffect = new Audio(rewardSound);
+      const rewardSoundEffect = new Audio(rewardSound);
       rewardSoundEffect.play();
     }, 2000); // Simulate the spinning time
   };
