@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useSound from 'use-sound'; // Importing useSound for sound effects
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip } from "@/components/ui/tooltip";
@@ -10,11 +11,17 @@ const Index = () => {
   const [currentWord, setCurrentWord] = useState(null);
   const [isSpinning, setIsSpinning] = useState(false);
 
+  const [playLeverSound] = useSound('/sounds/lever-pull.mp3'); // Lever pull sound
+  const [playWordSound] = useSound('/sounds/word-display.mp3'); // Word display sound
+
   const pullLever = () => {
+    setIsSpinning(true);
+    playLeverSound();
     setIsSpinning(true);
     setTimeout(() => {
       const newWord = words[Math.floor(Math.random() * words.length)];
       setCurrentWord(newWord);
+      playWordSound();
       setIsSpinning(false);
     }, 2000);
   };
