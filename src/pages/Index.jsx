@@ -15,8 +15,8 @@ const Index = () => {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-4">
-      <h1 className="text-3xl font-bold">Machine à Sous Éducative</h1>
-      <p className="text-lg">Apprenez des mots désuets et oubliés en français de manière ludique et addictive.</p>
+      <h1 className="text-3xl font-bold">Machine à Sous pour Mots Aléatoires</h1>
+      <p className="text-lg">Apprenez des mots désuets et oubliés en français.</p>
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Votre mot du jour</CardTitle>
@@ -32,13 +32,13 @@ const Index = () => {
               <p>{currentWord.definition}</p>
             </motion.div>
           ) : (
-            <p>Tirez le levier pour découvrir un nouveau mot !</p>
+            <p>Appuyez ici pour découvrir un nouveau mot !</p>
           )}
         </CardContent>
       </Card>
-      <Tooltip content="Tirez le levier pour découvrir un nouveau mot !">
+      <Tooltip content="Appuyez ici pour découvrir un nouveau mot !">
         <Button onClick={pullLever} className="mt-4">
-          Tirer le levier
+          Appuyer ici
         </Button>
       </Tooltip>
     </div>
